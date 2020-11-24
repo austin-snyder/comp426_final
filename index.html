@@ -1,0 +1,85 @@
+<!-- HOMEPAGE -->
+
+<!doctype html>
+<html>
+
+<head>
+  <!-- TITLE -->
+  <title>COMP426 Final Project</title>
+  <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- CSS -->
+  <link href="css/frame.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="css/controls.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="css/custom.css" media="screen" rel="stylesheet" type="text/css" />
+  <!-- IMPORTS -->
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <!-- ANALYSIS -->
+  <script src="./js/analysis.js"></script>
+  <!-- DATA -->
+  <script src="./data/js/institutionData.js"></script>
+  <script src="./data/js/authorData.js"></script>
+  <script src="./data/js/defaults.js"></script>
+  <!-- RENDERING -->
+  <script src="./display/renderHomePage.js"></script>
+  <script src="./display/menu.js"></script>
+  <script src="./display/institutionTable.js"></script>
+  <script src="./display/institutionFilterForm.js"></script>
+  <script>
+    $( function() {
+      var availableTags = compileInst(authorData);
+      $("#tags").autocomplete({source: availableTags});
+    });
+  </script>
+</head>
+
+<body>
+  <!-- MENU -->
+  <div id="menu">
+    <div class="menu-container"></div>
+  </div>
+  <!-- CONTENT -->
+  <div id="pageContent">
+    <div class="content-container"><div class="content"><div class="content-table flex-column">
+      <!-- LOGO & HEADER -->
+      <div class="flex-row">
+        <div class="flex-item flex-column">
+          <img class="image" src="img/magnifyingGlass.png">
+        </div>
+        <div class="flex-item flex-column">
+          <p class="text text-large">
+            Austin Snyder<br>
+            UNC-Chapel Hill<br><br>
+            COMP 426 Final Project: CS Rankings Rebuilt<br>
+          </p>
+        </div>
+      </div>
+      <!-- PRIMARY DESCRIPTION -->
+      <div id="primaryDescription" class="flex-row">
+        <div class="flex-item flex-column">
+          <p class="text add-top-margin">
+            This website inspired by csrankings.org intends to provide users with an interface
+            for seeking out the top graduate programs in Computer Science around the world.
+            Individuals with specialized interests may select for institutions that only offer the
+            types of programs they're interested in. Read more about these interests and the
+            methodology behind the rankings in the 'About' page!
+          </p>
+        </div>
+      </div><br>
+      <!-- PRIMARY FUNCTION -->
+      <h2 id="primaryFunctionLabel" style="margin: auto;"></h2><br>
+      <div id="primaryFunction" class="flex-row"></div><br>
+      <!-- VISUAL -->
+      <h2 id="visualLabel" style="margin: auto;"></h2><br>
+      <div id="visual" class="flex-row"></div>
+      <label for="tags">Search Institutions:</label><br><input id="tags">
+    </div>
+  </div>
+</body>
+
+</html>
